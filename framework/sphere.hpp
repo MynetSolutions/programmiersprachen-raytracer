@@ -9,6 +9,7 @@ class Sphere : public Shape
 		Sphere(glm::vec3 const& center);
 		Sphere(double radius);
 		Sphere(glm::vec3 const& center, double radius);
+		Sphere(glm::vec3 const& center, double radius, std::string name, Color color);
 		double area() const override;
 		double volume() const override;
 		glm::vec3 center() const;

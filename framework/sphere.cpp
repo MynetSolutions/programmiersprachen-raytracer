@@ -1,15 +1,18 @@
 #include <sphere.hpp>
 
-Sphere::Sphere():_center{glm::vec3{0}},_radius{0}
+Sphere::Sphere():_center{glm::vec3{0}},_radius{0},Shape::Shape("untitled_sphere", Color{0.0})
 {}
 
-Sphere::Sphere(glm::vec3 const& center):_center{center},_radius{0}
+Sphere::Sphere(glm::vec3 const& center):_center{center},_radius{0},Shape::Shape("untitled_sphere", Color{0.0})
 {}
 
-Sphere::Sphere(double radius):_center{glm::vec3{0}},_radius{radius}
+Sphere::Sphere(double radius):_center{glm::vec3{0}},_radius{radius},Shape::Shape("untitled_sphere", Color{0.0})
 {}
 
-Sphere::Sphere(glm::vec3 const& center, double radius):_center{center},_radius{radius}
+Sphere::Sphere(glm::vec3 const& center, double radius):_center{center},_radius{radius},Shape::Shape("untitled_sphere", Color{0})
+{}
+
+Sphere::Sphere(glm::vec3 const& center, double radius, std::string name, Color color):_center{center},_radius{radius}, Shape::Shape(name, color)
 {}
 
 glm::vec3 Sphere::center() const
