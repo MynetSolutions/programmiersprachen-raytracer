@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_RUNNER
 #include <catch.hpp>
 #include <sphere.hpp>
+#include <box.hpp>
 
 /*
 	Sphere tests
@@ -85,7 +86,7 @@ TEST_CASE("boxGetter","[Box]")
 TEST_CASE("boxArea","[Box]")
 {
 	Box b = Box{glm::vec3{0},glm::vec3{1}};
-	REQUIRE(b.area() = 6);
+	REQUIRE(b.area() == 6);
 }
 
 TEST_CASE("boxVolume","[Box]")
