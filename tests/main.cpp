@@ -12,6 +12,8 @@ TEST_CASE("sphereDefaultConstructor","[Sphere]")
 	Sphere s = Sphere{};
 	REQUIRE(s.center() == glm::vec3{0});  
 	REQUIRE(s.radius() == 0);
+	REQUIRE(s.name() == "untitled_sphere");
+	REQUIRE(s.color() == Color{0.0});
 }
 
 TEST_CASE("sphereCenterConstructor","[Sphere]")
@@ -20,6 +22,8 @@ TEST_CASE("sphereCenterConstructor","[Sphere]")
 	Sphere s = Sphere{center};
 	REQUIRE(s.center() == center);  
 	REQUIRE(s.radius() == 0);
+	REQUIRE(s.name() == "untitled_sphere");
+	REQUIRE(s.color() == Color{0.0});
 }
 
 TEST_CASE("sphereRadiusConstructor","[Sphere]")
@@ -27,14 +31,18 @@ TEST_CASE("sphereRadiusConstructor","[Sphere]")
 	Sphere s = Sphere{2};
 	REQUIRE(s.center() == glm::vec3{0});  
 	REQUIRE(s.radius() == 2);
+	REQUIRE(s.name() == "untitled_sphere");
+	REQUIRE(s.color() == Color{0.0});
 }
 
 TEST_CASE("sphereConstructor","[Sphere]")
 {
 	glm::vec3 center{2};
-	Sphere s = Sphere{center, 3.5};
+	Sphere s = Sphere{center, 3.5,"test",Color{1.0}};
 	REQUIRE(s.center() == center);  
 	REQUIRE(s.radius() == 3.5);
+	REQUIRE(s.name() == "test");
+	REQUIRE(s.color() == Color{1.0});
 }
 
 TEST_CASE("sphereGetter","[Sphere]")
@@ -43,6 +51,8 @@ TEST_CASE("sphereGetter","[Sphere]")
 	glm::vec3 center{0};
 	REQUIRE(s.center() == center);  
 	REQUIRE(s.radius() == 0);
+	REQUIRE(s.name() == "untitled_sphere");
+	REQUIRE(s.color() == Color{0.0});
 }
 
 TEST_CASE("sphereArea","[Sphere]")
@@ -67,20 +77,26 @@ TEST_CASE("boxDefaultConstructor","[Box]")
 	Box b = Box{};
 	REQUIRE(b.min() == glm::vec3{0});
 	REQUIRE(b.max() == glm::vec3{0});
+	REQUIRE(b.name() == "untitled_box");
+	REQUIRE(b.color() == Color{0.0});
 }
 
 TEST_CASE("boxConstructor","[Box]")
 {
-	Box b = Box{glm::vec3{0},glm::vec3{1}};
+	Box b = Box{glm::vec3{0},glm::vec3{1},"test",Color{1.0}};
 	REQUIRE(b.min() == glm::vec3{0});
 	REQUIRE(b.max() == glm::vec3{1});
+	REQUIRE(b.name() == "test");
+	REQUIRE(b.color() == Color{1.0});
 }
 
 TEST_CASE("boxGetter","[Box]")
 {
 	Box b = Box{glm::vec3{0},glm::vec3{1}};
 	REQUIRE(b.min() == glm::vec3{0});
-	REQUIRE(b.max() == glm::vec3{1});	
+	REQUIRE(b.max() == glm::vec3{1});
+	REQUIRE(b.name() == "untitled_box");
+	REQUIRE(b.color() == Color{0.0});	
 }
 
 TEST_CASE("boxArea","[Box]")
