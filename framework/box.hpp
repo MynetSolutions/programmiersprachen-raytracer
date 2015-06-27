@@ -9,6 +9,7 @@ class Box : public Shape
 		Box(glm::vec3 const& min, glm::vec3 const& max, std::string name, Color color);
 		double area() const override;
 		double volume() const override;
+		std::ostream& print(std::ostream& os) const override;
 		glm::vec3 min() const;
 		glm::vec3 max() const;
 	private:

@@ -2,7 +2,8 @@
 #include <catch.hpp>
 #include <sphere.hpp>
 #include <box.hpp>
-
+#include <iostream>
+#include <functions.hpp>
 /*
 	Sphere tests
 */
@@ -109,6 +110,14 @@ TEST_CASE("boxVolume","[Box]")
 {
 	Box b = Box{glm::vec3{0},glm::vec3{1}};
 	REQUIRE(b.volume() == 1);
+}
+
+TEST_CASE("printShape","[Shape]")
+{
+	Box b = Box{};
+	Sphere s = Sphere{};
+	std::cout << b;
+	std::cout << s;
 }
 
 int main(int argc, char *argv[])

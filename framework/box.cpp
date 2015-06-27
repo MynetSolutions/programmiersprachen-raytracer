@@ -9,6 +9,16 @@ Box::Box(glm::vec3 const& min, glm::vec3 const& max):_min{min},_max{max},Shape::
 Box::Box(glm::vec3 const& min, glm::vec3 const& max, std::string name, Color color):_min{min},_max{max},Shape::Shape(name, color)
 {}
 
+std::ostream& Box::print(std::ostream& os) const
+{
+	os << "[Box ID: " << std::addressof(this) << "]\n" <<
+				"Name: " << _name << "\n" <<
+ 				"Color: " << _color <<
+ 				"Min: " << glm::to_string(_min) << "\n" <<
+ 				"Max: " << glm::to_string(_max) << "\n\n"; 
+	return os;
+}
+
 glm::vec3 Box::min() const
 {
 	return _min;

@@ -15,6 +15,16 @@ Sphere::Sphere(glm::vec3 const& center, double radius):_center{center},_radius{r
 Sphere::Sphere(glm::vec3 const& center, double radius, std::string name, Color color):_center{center},_radius{radius}, Shape::Shape(name, color)
 {}
 
+std::ostream& Sphere::print(std::ostream& os) const
+{
+	os << "[Sphere ID: " << std::addressof(this) << "]\n" <<
+				"Name: " << _name << "\n" <<
+ 				"Color: " << _color <<
+ 				"Center: " << glm::to_string(_center) << "\n" <<
+ 				"Radius: " << _radius << "\n\n";
+	return os;
+}
+
 glm::vec3 Sphere::center() const
 {
 	return _center;
@@ -34,3 +44,4 @@ double Sphere::volume() const
 {
 	return 4.0/3.0 * M_PI * _radius * _radius * _radius;
 }
+
