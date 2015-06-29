@@ -178,6 +178,8 @@ TEST_CASE("virtualDestructor","[destruct]")
 	glm::vec3 position{0.0};
 	Sphere* s1 = new Sphere{position , 1.2 ,"sphere0" ,red};
 	Shape* s2 = new Sphere{position , 1.2 , "sphere1" , red};
+	//std::cout << s1 << "\n";
+	//std::cout << s2;
 	s1->print(std::cout);
 	s2->print(std::cout);
 	delete s1 ;

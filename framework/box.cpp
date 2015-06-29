@@ -1,16 +1,25 @@
-#include <box.hpp>
+#include "box.hpp"
 
-Box::Box():_min{glm::vec3{0}},_max{glm::vec3{0}},Shape::Shape("untitled_box", Color{0.0})
+Box::Box():
+Shape::Shape("untitled_box", Color{0.0}),
+_min{glm::vec3{0}},
+_max{glm::vec3{0}}
 {
 	std::cout << "Box construct \n";
 }
 
-Box::Box(glm::vec3 const& min, glm::vec3 const& max):_min{min},_max{max},Shape::Shape("untitled_box", Color{0.0})
+Box::Box(glm::vec3 const& min, glm::vec3 const& max):
+Shape::Shape("untitled_box", Color{0.0}),
+_min{min},
+_max{max}
 {
 	std::cout << "Box construct \n";
 }
 
-Box::Box(glm::vec3 const& min, glm::vec3 const& max, std::string name, Color color):_min{min},_max{max},Shape::Shape(name, color)
+Box::Box(glm::vec3 const& min, glm::vec3 const& max, std::string const& name, Color const& color):
+Shape::Shape(name, color),
+_min{min},
+_max{max}
 {
 	std::cout << "Box construct \n";
 }
@@ -27,7 +36,7 @@ std::ostream& Box::print(std::ostream& os) const
 
 bool Box::intersect(Ray ray, float& distance) const
 {
-	return false;
+	throw std::runtime_error("not implemented");
 }
 
 glm::vec3 Box::min() const

@@ -1,26 +1,41 @@
-#include <sphere.hpp>
+#include "sphere.hpp"
 
-Sphere::Sphere():_center{glm::vec3{0}},_radius{0},Shape::Shape("untitled_sphere", Color{0.0})
+Sphere::Sphere():
+Shape::Shape("untitled_sphere", Color{0.0}),
+_center{glm::vec3{0}},
+_radius{0}
 {
 	std::cout << "Sphere construct \n";
 }
 
-Sphere::Sphere(glm::vec3 const& center):_center{center},_radius{0},Shape::Shape("untitled_sphere", Color{0.0})
+Sphere::Sphere(glm::vec3 const& center):
+Shape::Shape("untitled_sphere", Color{0.0}),
+_center{center},
+_radius{0}
 {
 	std::cout << "Sphere construct \n";
 }
 
-Sphere::Sphere(double radius):_center{glm::vec3{0}},_radius{radius},Shape::Shape("untitled_sphere", Color{0.0})
+Sphere::Sphere(double radius):
+Shape::Shape("untitled_sphere", Color{0.0}),
+_center{glm::vec3{0}},
+_radius{radius}
 {
 	std::cout << "Sphere construct \n";
 }
 
-Sphere::Sphere(glm::vec3 const& center, double radius):_center{center},_radius{radius},Shape::Shape("untitled_sphere", Color{0})
+Sphere::Sphere(glm::vec3 const& center, double radius):
+Shape::Shape("untitled_sphere", Color{0}),
+_center{center},
+_radius{radius}
 {
 	std::cout << "Sphere construct \n";
 }
 
-Sphere::Sphere(glm::vec3 const& center, double radius, std::string name, Color color):_center{center},_radius{radius}, Shape::Shape(name, color)
+Sphere::Sphere(glm::vec3 const& center, double radius, std::string const& name, Color const& color):
+Shape::Shape(name, color),
+_center{center},
+_radius{radius}
 {
 	std::cout << "Sphere construct \n";
 }

@@ -1,3 +1,5 @@
+#ifndef BUW_BOX_HPP
+#define BUW_BOX_HPP
 #include "shape.hpp"
 #include <glm/vec3.hpp>
 
@@ -6,7 +8,7 @@ class Box : public Shape
 	public:
 		Box();
 		Box(glm::vec3 const& min, glm::vec3 const& max);
-		Box(glm::vec3 const& min, glm::vec3 const& max, std::string name, Color color);
+		Box(glm::vec3 const& min, glm::vec3 const& max, std::string const& name, Color const& color);
 		double area() const override;
 		double volume() const override;
 		std::ostream& print(std::ostream& os) const override;
@@ -18,3 +20,4 @@ class Box : public Shape
 		glm::vec3 _min;
 		glm::vec3 _max;
 };
+#endif
