@@ -4,6 +4,9 @@
 #include <box.hpp>
 #include <iostream>
 #include <functions.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtx/intersect.hpp>
+
 /*
 	Sphere tests
 */
@@ -118,6 +121,33 @@ TEST_CASE("printShape","[Shape]")
 	Sphere s = Sphere{};
 	std::cout << b;
 	std::cout << s;
+}
+
+/*
+ Intersect tests
+*/
+
+TEST_CASE("intersectRaySphere","[intersect]")
+{
+	//Ray
+	glm::vec3 ray_origin(0.0,0.0,0.0);
+	glm::vec3 ray_direction(0.0,0.0,1.0);
+	//Sphere
+	glm::vec3 sphere_center(0.0,0.0,5.0);
+	float sphere_radius(1.0);
+	float distance(0.0);
+	auto result = glm::intersectRaySphere(
+					ray_origin,ray_direction,
+					sphere_center,sphere_radius,
+					distance);
+	REQUIRE(distance==Approx(4.0f));
+}
+
+TEST_CASE("customIntersectRaySphere","[intersect]")
+{
+	Ray ray{glm::vec3{6.0,6.0,6.0},glm::vec3{-1.0,-1.0,-1.0}};
+	Sphere sphere{glm::vec3{0.0,0.0,0.0}, 7.0};
+	REQUIRE(sphere.intersect(ray));
 }
 
 int main(int argc, char *argv[])
