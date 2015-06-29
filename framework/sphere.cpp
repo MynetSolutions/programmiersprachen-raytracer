@@ -15,6 +15,13 @@ Sphere::Sphere(glm::vec3 const& center, double radius):_center{center},_radius{r
 Sphere::Sphere(glm::vec3 const& center, double radius, std::string name, Color color):_center{center},_radius{radius}, Shape::Shape(name, color)
 {}
 
+bool Sphere::intersect(Ray ray, float& distance) const
+{
+	return glm::intersectRaySphere(
+					ray.origin,glm::normalize(ray.direction),
+					_center,_radius,distance);
+}
+
 std::ostream& Sphere::print(std::ostream& os) const
 {
 	os << "[Sphere ID: " << std::addressof(this) << "]\n" <<
