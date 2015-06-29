@@ -122,6 +122,22 @@ TEST_CASE("printShape","[Shape]")
 	std::cout << b;
 	std::cout << s;
 }
+/*
+ Ray tests
+*/
+TEST_CASE("rayDefaultConstructor", "[ray]")
+{
+	Ray r = Ray{};
+	REQUIRE(r.origin == glm::vec3{0});
+	REQUIRE(r.direction == glm::vec3{0});
+}
+
+TEST_CASE("rayCustomConstructor", "[ray]")
+{
+	Ray r = Ray{glm::vec3{1}, glm::vec3{5}};
+	REQUIRE(r.origin == glm::vec3{1});
+	REQUIRE(r.direction == glm::vec3{5});
+}
 
 /*
  Intersect tests
@@ -147,7 +163,8 @@ TEST_CASE("customIntersectRaySphere","[intersect]")
 {
 	Ray ray{glm::vec3{6.0,6.0,6.0},glm::vec3{-1.0,-1.0,-1.0}};
 	Sphere sphere{glm::vec3{0.0,0.0,0.0}, 7.0};
-	REQUIRE(sphere.intersect(ray));
+	float d;
+	REQUIRE(sphere.intersect(ray,d));
 }
 
 int main(int argc, char *argv[])
