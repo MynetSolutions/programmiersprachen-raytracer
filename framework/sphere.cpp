@@ -1,19 +1,29 @@
 #include <sphere.hpp>
 
 Sphere::Sphere():_center{glm::vec3{0}},_radius{0},Shape::Shape("untitled_sphere", Color{0.0})
-{}
+{
+	std::cout << "Sphere construct \n";
+}
 
 Sphere::Sphere(glm::vec3 const& center):_center{center},_radius{0},Shape::Shape("untitled_sphere", Color{0.0})
-{}
+{
+	std::cout << "Sphere construct \n";
+}
 
 Sphere::Sphere(double radius):_center{glm::vec3{0}},_radius{radius},Shape::Shape("untitled_sphere", Color{0.0})
-{}
+{
+	std::cout << "Sphere construct \n";
+}
 
 Sphere::Sphere(glm::vec3 const& center, double radius):_center{center},_radius{radius},Shape::Shape("untitled_sphere", Color{0})
-{}
+{
+	std::cout << "Sphere construct \n";
+}
 
 Sphere::Sphere(glm::vec3 const& center, double radius, std::string name, Color color):_center{center},_radius{radius}, Shape::Shape(name, color)
-{}
+{
+	std::cout << "Sphere construct \n";
+}
 
 bool Sphere::intersect(Ray ray, float& distance) const
 {
@@ -52,3 +62,7 @@ double Sphere::volume() const
 	return 4.0/3.0 * M_PI * _radius * _radius * _radius;
 }
 
+Sphere::~Sphere()
+{
+	std::cout << "Sphere destruct \n";
+}

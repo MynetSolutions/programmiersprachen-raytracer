@@ -17,8 +17,9 @@ class Shape
 		virtual double volume() const = 0;
 		virtual bool intersect(Ray ray, float& distance) const = 0;
 		virtual std::ostream& print(std::ostream& os) const;
-		Color color();
-		std::string name();
+		Color color() const;
+		std::string name() const;
+		virtual ~Shape();
 
 	protected:
 		std::string _name;

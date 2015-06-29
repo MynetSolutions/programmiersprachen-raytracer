@@ -13,6 +13,7 @@ class Box : public Shape
 		bool intersect(Ray ray, float& distance) const override;
 		glm::vec3 min() const;
 		glm::vec3 max() const;
+		~Box() override; 
 	private:
 		glm::vec3 _min;
 		glm::vec3 _max;

@@ -1,13 +1,19 @@
 #include <box.hpp>
 
 Box::Box():_min{glm::vec3{0}},_max{glm::vec3{0}},Shape::Shape("untitled_box", Color{0.0})
-{}
+{
+	std::cout << "Box construct \n";
+}
 
 Box::Box(glm::vec3 const& min, glm::vec3 const& max):_min{min},_max{max},Shape::Shape("untitled_box", Color{0.0})
-{}
+{
+	std::cout << "Box construct \n";
+}
 
 Box::Box(glm::vec3 const& min, glm::vec3 const& max, std::string name, Color color):_min{min},_max{max},Shape::Shape(name, color)
-{}
+{
+	std::cout << "Box construct \n";
+}
 
 std::ostream& Box::print(std::ostream& os) const
 {
@@ -44,4 +50,9 @@ double Box::volume() const
 {
 	glm::vec3 v = _max - _min;
 	return v.x * v.y * v.z;
+}
+
+Box::~Box()
+{
+	std::cout << "Box destruct \n";
 }
