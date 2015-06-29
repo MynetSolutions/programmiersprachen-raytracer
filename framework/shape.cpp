@@ -23,3 +23,4 @@ std::string Shape::name()
 {
 	return _name;
 }
+

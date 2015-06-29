@@ -3,6 +3,8 @@
 #define GLM_FORCE_RADIANS
 #include <color.hpp>
 #include <string>
+#include <ray.hpp>
+#include <glm/glm.hpp>
 #include <iostream>
 #include "glm/ext.hpp"
 
@@ -13,6 +15,7 @@ class Shape
 		Shape(std::string name, Color color);
 		virtual double area() const = 0;
 		virtual double volume() const = 0;
+		virtual bool intersect(Ray ray, float& distance) const = 0;
 		virtual std::ostream& print(std::ostream& os) const;
 		Color color();
 		std::string name();
