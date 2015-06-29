@@ -10,6 +10,7 @@ class Box : public Shape
 		double area() const override;
 		double volume() const override;
 		std::ostream& print(std::ostream& os) const override;
+		bool intersect(Ray ray, float& distance) const override;
 		glm::vec3 min() const;
 		glm::vec3 max() const;
 	private:

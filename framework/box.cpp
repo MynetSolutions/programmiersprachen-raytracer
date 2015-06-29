@@ -19,6 +19,11 @@ std::ostream& Box::print(std::ostream& os) const
 	return os;
 }
 
+bool Box::intersect(Ray ray, float& distance) const
+{
+	return false;
+}
+
 glm::vec3 Box::min() const
 {
 	return _min;
